@@ -1,0 +1,185 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(120deg, #f6d365, #d88771);
+  min-height: 100vh; /* Эквивалентно 1% высоты окна браузера. */
+  background-size: cover; /*Масштабирует изображение с сохранением пропорций так, чтобы его ширина или высота равнялась ширине или высоте блока.*/
+  min-width: 100%;
+}
+
+.error {
+  color: red;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+button,
+input {
+  outline: none;
+}
+
+header {
+  font-size: 1.5rem;
+}
+
+header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+form input {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+}
+
+form button {
+  color: #d88771;
+  background: white;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+form button:hover {
+  background-color: #d88771;
+  color: white;
+}
+
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list {
+  min-width: 30%;
+  list-style: decimal; /*Список арабскими числами*/
+}
+
+.todo {
+  margin: 0.5rem;
+  background: white;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.todo:hover {
+  background: #ddd;
+}
+
+.todo li {
+  flex: 1;
+}
+
+.trash-btn,
+.completed-btn {
+  background: #ff6747;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.completed-btn {
+  background-color: rgb(73, 204, 73);
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+  transform: translateX(20px);
+}
+
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.fall {
+  /* ease - Анимация начинается медленно, затем ускоряется и к концу движения опять замедляется, forwards свойства animation-fill-mode изменяет это поведение и оставляет стили на момент завершения движения*/
+  animation: todoFade 0.8s ease forwards;
+}
+
+@keyframes todoFade {
+  from {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+select {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+select {
+  color: #ff6747;
+  width: 10rem;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+option {
+  padding: 1rem;
+}
+
+.select::after {
+  content: "\25BC";
+  color: #fff;
+  position: absolute;
+  background: #ff6747;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  pointer-events: none;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.select:hover::after {
+  background: white;
+  color: #ff6747;
+  transition: all 0.3s ease;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
